@@ -35,15 +35,15 @@ function draw() {
     fill("purple");
   }
   else if(counter == 3){
-    fill("black")
+    fill("orange")
   }
   else{
     counter = 0;
-    fill("grey");
+    fill("pink");
   }
 rect(50, 20, 55, 55);
 
-  fill("purple");
+  fill("green");
   rect(boundary0, topBoundary, buttonSize, buttonSize);
   fill("blue");
   rect(boundary1, topBoundary, buttonSize, buttonSize);

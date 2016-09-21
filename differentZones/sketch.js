@@ -27,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+
   if(counter == 1){
     fill("yellow");
   }

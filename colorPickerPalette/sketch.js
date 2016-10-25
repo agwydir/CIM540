@@ -1,10 +1,5 @@
 var topBoundary = 0;
-var bottomBoundary = 0;
-var boundary0 = 0;
-var boundary1 = 0;
-var boundary2 = 0;
-var boundary3 = 0;
-var boundary4 = 0;
+top
 
 var buttonSize = 100;
 

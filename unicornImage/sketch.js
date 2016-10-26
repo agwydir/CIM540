@@ -2,7 +2,7 @@ var img0;
 var img1;
 var img2;
 
-var imageArray = [];
+//var imageArray = [];
 var counter = 0;
 
 var topBoundary = 0;
@@ -20,16 +20,23 @@ var currentArea = "";
 
 var slider;
 
+var clearScreen;
+var displayImage;
+
+var drawingName;
+
 function setup() {
   createCanvas(850, 825);
   
   img0 = loadImage("animal1.png");  
-  img1 = loadImage("animal2.png");  
-  img2 = loadImage("animal3.png");  
+  // img1 = loadImage("animal2.png");  
+  // img2 = loadImage("animal3.png"); 
   
-  imageArray[0] = img0;
-  imageArray[1] = img1;
-  imageArray[2] = img2;
+  
+  
+  // imageArray[0] = img0;
+  // imageArray[1] = img1;
+  // imageArray[2] = img2;
   
   
   topBoundary = 600;
@@ -48,28 +55,61 @@ function setup() {
 
 slider = createSlider(5, 50, 15);
 slider.position(360, 730);
+
+// button = createButton('Next Image');
+// button.position(392, 762);
+// button.mousePressed(next);
+
+input = createInput('Name your drawing');
+input.position(100, 760);
+
+// button = createButton('GO');
+// button.position(245, 780);
+// button.mousePressed(name);
   
 }
 
 function draw() {
   noStroke();
  
+   
+ 
   image(img0, 50, 0);
-  // Displays the image at point (0, height/2) at half size
   image(img0, 0, height, img0.width, img0.height);
   
-   image(img1, 50, 0);
-  // Displays the image at point (0, height/2) at half size
-  image(img1, 0, height, img1.width, img1.height);
+  // image(img1, 50, 0);
+  // image(img1, 0, height, img1.width, img1.height);
   
-   image(img2, 50, 0);
-  // Displays the image at point (0, height/2) at half size
-  image(img2, 0, height, img2.width, img2.height);
+  // image(img2, 50, 0);
+  // image(img2, 0, height, img2.width, img2.height);
   
-for(var counter = 0; counter < imageArray.length; counter++){
-    //img(randomHello[counter], random(width), random(height));
+
   
-}
+  
+  //   if(counter == 0){
+  //   imageArray[0];
+  // }
+  // else if(counter == 1){
+  //   imageArray[1];
+  // }
+  // else if(counter == 2){
+  //   imageArray[2];
+  // }
+  // else{
+  //   counter = 0;
+  // }
+  
+ // 
+// if(clearScreen == true){
+//   fill(255);
+//   rect(0,50,300,300);
+//   clearScreen = false;
+// }
+ 
+// if(displayImage == true){
+// image(imageArray[counter], 0, 50, imageArray[counter].width, imageArray[counter].height);
+// } 
+  
   
   fill('white');
   rect(100, 570, 650, 335);
@@ -96,19 +136,16 @@ for(var counter = 0; counter < imageArray.length; counter++){
   fill(158, 244, 66);
   rect(0, 0, 850, 25);
   
-  
-  stroke('black');
-  strokeWeight(3);
-  fill('white');
-  rect(385, 762, 85, 50);
-  
-  noStroke();
-  fill('black')
-  triangle(445, 778, 460, 790, 445, 800);
-  
-  textSize(18);
-  text("Next", 398, 794);
+  // fill('black');
+  // textFont("Georgia");
+  // textSize(18); 
+  // text("Name your drawing",100, 770);
 
+fill('black');
+  textFont("Georgia");
+  textSize(22); 
+  textAlign(CENTER);
+text(input.value(), width/2, 590);
 
   
   if(mouseY > topBoundary && mouseY < bottomBoundary){
@@ -133,6 +170,8 @@ for(var counter = 0; counter < imageArray.length; counter++){
    fill(brushColor);
   ellipse(mouseX, mouseY, slider.value(), slider.value());
   
+  
+  
  }
   
 }
@@ -153,12 +192,41 @@ function mousePressed(){
     brushColor = color(120, 238, 246);
   }
   
-  counter = counter+1
+  counter = counter+1;
+  if(counter >= 3){
+    counter = 0;
+  }
   console.log(counter);
+}
   
-  //counter++;
-  //if(counter >= imageArray.length){
-    //counter = 0;
+  // counter++;
+  // if(counter >= imageArray.length){
+  //   counter = 0;
   
+  
+
+
+function next() {
+counter = counter+1;
+   if(counter >= 3){
+  counter = 0;
+  console.log(counter);
+  }
+  
+  if(clearScreen == true){
+  fill(255);
+  rect(0,50,300,300);
+  clearScreen = false;
+}
+ 
+if(displayImage == true){
+image(imageArray[counter], 0, 50, imageArray[counter].width, imageArray[counter].height);
+} 
+ 
+
+}
+
+function name(){
+
 }
 
